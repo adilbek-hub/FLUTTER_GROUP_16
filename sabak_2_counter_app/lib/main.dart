@@ -29,6 +29,18 @@ class CounterApp extends StatefulWidget {
 class _CounterAppState extends State<CounterApp> {
   int count = 0;
 
+  void increment() {
+    setState(() {
+      count--;
+    });
+  }
+
+  void decrement() {
+    setState(() {
+      count++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,9 +81,7 @@ class _CounterAppState extends State<CounterApp> {
               children: [
                 InkWell(
                   onTap: () {
-                    setState(() {
-                      count--;
-                    });
+                    increment();
                   },
                   child: Container(
                     width: 80,
@@ -86,9 +96,7 @@ class _CounterAppState extends State<CounterApp> {
                 const SizedBox(width: 20),
                 InkWell(
                   onTap: () {
-                    setState(() {
-                      count++;
-                    });
+                    decrement();
                   },
                   child: Container(
                     width: 80,
