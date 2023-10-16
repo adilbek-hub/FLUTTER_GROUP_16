@@ -62,15 +62,175 @@ class _HomeViewState extends State<HomeView> {
                 width: double.infinity,
                 height: 310,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(22),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Color.fromARGB(137, 116, 114, 114),
-                        offset: Offset(4, 4),
-                        blurRadius: 10,
-                      )
-                    ]),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(22),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color.fromARGB(137, 116, 114, 114),
+                      offset: Offset(4, 4),
+                      blurRadius: 10,
+                    )
+                  ],
+                ),
+                child: const Padding(
+                  padding:
+                      EdgeInsets.only(left: 4, top: 35, right: 52, bottom: 40),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.check_box,
+                              size: 40,
+                            ),
+                            SizedBox(width: 7),
+                            Text(
+                              'Grocery Shoping',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            SizedBox(width: 30),
+                            Icon(
+                              Icons.border_color,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                            SizedBox(width: 10),
+                            Icon(
+                              Icons.delete,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8.04),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.check_box,
+                              size: 40,
+                            ),
+                            SizedBox(width: 7),
+                            Text(
+                              'Grocery Shoping',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            SizedBox(width: 30),
+                            Icon(
+                              Icons.border_color,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                            SizedBox(width: 10),
+                            Icon(
+                              Icons.delete,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8.04),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.check_box,
+                              size: 40,
+                            ),
+                            SizedBox(width: 7),
+                            Text(
+                              'Grocery Shoping',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            SizedBox(width: 30),
+                            Icon(
+                              Icons.border_color,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                            SizedBox(width: 10),
+                            Icon(
+                              Icons.delete,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8.04),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.check_box,
+                              size: 40,
+                            ),
+                            SizedBox(width: 7),
+                            Text(
+                              'Grocery Shoping',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            SizedBox(width: 30),
+                            Icon(
+                              Icons.border_color,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                            SizedBox(width: 10),
+                            Icon(
+                              Icons.delete,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8.04),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.check_box,
+                              size: 40,
+                            ),
+                            SizedBox(width: 7),
+                            Text(
+                              'Grocery Shoping',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            SizedBox(width: 30),
+                            Icon(
+                              Icons.border_color,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                            SizedBox(width: 10),
+                            Icon(
+                              Icons.delete,
+                              size: 40,
+                              color: Color(0xff4ebdaf),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
