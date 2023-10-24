@@ -9,12 +9,11 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  String email = 'adilbek@gmail.com';
-  String password = '000a';
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
   final formKey = GlobalKey<FormState>();
+  String email = 'adilbek';
+  String password = '0000';
+  List<String> emailList = ['Aybek', 'Ayzirek', 'Medina', 'Adilbek'];
+  List<String> passwordList = ['Aybek', 'Ayzirek', 'Medina', 'Adilbek'];
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +49,11 @@ class _LoginViewState extends State<LoginView> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Email жазыңыз';
+                      } else if (!emailList.contains(value)) {
+                        return 'Сиздин Email туура эмес';
+                      } else {
+                        return null;
                       }
-                      return null;
                     },
                     decoration: const InputDecoration(
                       hintText: 'Enter Your Email',
@@ -70,11 +72,14 @@ class _LoginViewState extends State<LoginView> {
                 child: Material(
                   elevation: 15,
                   child: TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
+                    validator: (menJazganTekst) {
+                      if (menJazganTekst == null || menJazganTekst.isEmpty) {
                         return 'Сиз пароль жазыыз';
+                      } else if (!passwordList.contains(menJazganTekst)) {
+                        return 'Пароль туура эмес';
+                      } else {
+                        return null;
                       }
-                      return null;
                     },
                     decoration: const InputDecoration(
                       hintText: 'Enter Your Password',
@@ -105,6 +110,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
                     Navigator.push(
                       context,
                       MaterialPageRoute(
