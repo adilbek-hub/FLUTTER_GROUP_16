@@ -27,7 +27,8 @@ class _ListViewExampleState extends State<ListViewExample> {
       body: ListView.builder(
           itemCount: images.length,
           itemBuilder: (context, index) {
-            return Image.network('$images');
+            final image = images[index];
+            return Image.network(image);
           }),
     );
   }
