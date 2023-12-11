@@ -10,14 +10,15 @@ class Continents {
 }
 
 //object
-Continents europe = const Continents(
-    continentName: 'Европа',
-    continentImage:
-        'https://wheremaps.com/wp-content/uploads/2023/02/Europe-Map.webp');
 Continents asia = const Continents(
     continentName: 'Азия',
     continentImage:
         'https://cdn1.iconfinder.com/data/icons/continents-icons/512/asia-512.png');
+Continents europe = const Continents(
+    continentName: 'Европа',
+    continentImage:
+        'https://wheremaps.com/wp-content/uploads/2023/02/Europe-Map.webp');
+
 Continents northAmerica = const Continents(
     continentName: 'Түндүк Америка',
     continentImage:
