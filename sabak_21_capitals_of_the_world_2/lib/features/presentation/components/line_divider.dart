@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sabak_21_capitals_of_the_world_2/features/repositories/theme/app_colors.dart';
+import 'package:sabak_21_capitals_of_the_world_2/features/presentation/theme/app_colors.dart';
 
 class LineDivider extends StatelessWidget {
   const LineDivider({

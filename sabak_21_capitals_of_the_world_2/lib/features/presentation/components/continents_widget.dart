@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sabak_21_capitals_of_the_world_2/features/data/model/continents.dart';
-import 'package:sabak_21_capitals_of_the_world_2/features/repositories/pages/detail_page.dart';
+import 'package:sabak_21_capitals_of_the_world_2/features/presentation/pages/detail_page.dart';
 
 class ContinentsWidget extends StatelessWidget {
   const ContinentsWidget({

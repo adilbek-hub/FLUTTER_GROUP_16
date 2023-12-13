@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sabak_21_capitals_of_the_world_2/features/repositories/theme/app_text_style.dart';
+import 'package:sabak_21_capitals_of_the_world_2/features/presentation/theme/app_text_style.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({
@@ -39,22 +39,30 @@ class DetailPage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Expanded(
-            child: Row(
-              children: [
-                ChooseCountries(),
-                ChooseCountries(),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                ChooseCountries(),
-                ChooseCountries(),
-              ],
-            ),
-          ),
+         GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 8.0,
+        crossAxisSpacing: 8.0,
+      ),
+      itemCount: continentsList.length,
+      padding: const EdgeInsets.all(8.0),
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: ((context) => DetailPage(
+                      image: continentsList[index].continentImage,
+                    )),
+              ),
+            );
+          },
+          child:
+        );
+      },
+    );
         ],
       ),
     );
@@ -90,15 +98,17 @@ class ChooseCountries extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      clipBehavior: Clip.hardEdge,
-      child: InkWell(
-        splashColor: Colors.blue.withAlpha(30),
-        onTap: () {
-          debugPrint('Card tapped.');
-        },
-        child: Center(
-          child: Text('Кыргызстан'),
+    return Expanded(
+      child: Card(
+        clipBehavior: Clip.hardEdge,
+        child: InkWell(
+          splashColor: Colors.blue.withAlpha(30),
+          onTap: () {
+            debugPrint('Card tapped.');
+          },
+          child: Center(
+            child: Text('Кыргызстан'),
+          ),
         ),
       ),
     );
