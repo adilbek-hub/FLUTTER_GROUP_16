@@ -24,7 +24,7 @@ class ContinentsWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: ((context) => DetailPage(
-                      image: continentsList[index].continentImage,
+                      test: ,
                     )),
               ),
             );

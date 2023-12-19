@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:sabak_22_capitals_of_the_world_3/features/data/model/continents.dart';
+import 'package:sabak_22_capitals_of_the_world_3/features/data/model/test.dart';
 import 'package:sabak_22_capitals_of_the_world_3/features/presentation/theme/app_size.dart';
 import 'package:sabak_22_capitals_of_the_world_3/features/presentation/theme/app_text_style.dart';
 
-class DetailPage extends StatefulWidget {
+class DetailPage extends StatelessWidget {
   const DetailPage({
     Key? key,
-    required this.image,
+    required this.test,
   }) : super(key: key);
-  final String image;
+  final List<Test> test;
 
-  @override
-  State<DetailPage> createState() => _DetailPageState();
-}
-
-class _DetailPageState extends State<DetailPage> {
   final double sl = 10;
 
   @override
   Widget build(BuildContext context) {
+    int testIndex = 0;
     return Scaffold(
       appBar: _detailAppBar(),
       body: Column(
@@ -40,7 +36,7 @@ class _DetailPageState extends State<DetailPage> {
             ),
           ),
           Text(
-            continentsList[1].asiaContinentTest!.surooText,
+            test[testIndex].name,
             style: AppTextStyles.capitalNameStyle,
           ),
           Expanded(
