@@ -2,15 +2,11 @@
 
 A new Flutter project.
 
-## Getting Started
+Бул пректте континенттердеги өлкөлөрдүн борборлорун табуу тести иштеп чыгарылды.
 
-This project is a starting point for a Flutter application.
+Биринчи сүрөттө континеттер жайгашылган, качан гана Азия континентин басканда тест бөлүмүнө кирет ал эми башка континенттерди басканда аларга кирбейт.
+<img src="for_readme/Screenshot_1703095817.png" width="128"/>
 
-A few resources to get you started if this is your first Flutter project:
+Экинчи сүрөттө Азия континентинин өлкөлөрүнүн борборлору тууралуу тест.
+<img src="for_readme/Screenshot_1703095824.png" width="128"/>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
