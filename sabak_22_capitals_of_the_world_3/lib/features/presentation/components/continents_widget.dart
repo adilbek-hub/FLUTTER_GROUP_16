@@ -20,14 +20,24 @@ class ContinentsWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: ((context) => DetailPage(
-                      test: ,
-                    )),
-              ),
-            );
+            if (continentsList[index].test != null) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => DetailPage()),
+                ),
+              );
+            } else {
+              final snackBar = SnackBar(
+                content: Text(
+                    'Сиз тандаган ${continentsList[index].continentName} континенти бош'),
+                action: SnackBarAction(
+                  label: 'Континент',
+                  onPressed: () {},
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            }
           },
           child: Container(
             color: const Color.fromARGB(255, 183, 247, 205),

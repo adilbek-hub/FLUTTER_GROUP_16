@@ -1,19 +1,25 @@
 //class
 
+import 'package:sabak_22_capitals_of_the_world_3/features/data/model/test.dart';
+
 class Continents {
   Continents({
     required this.continentName,
     required this.continentImage,
+    this.test,
   });
   final String continentName;
   final String continentImage;
+  final List<Test>? test;
 }
 
 //object
 Continents asia = Continents(
-    continentName: 'Азия',
-    continentImage:
-        'https://cdn1.iconfinder.com/data/icons/continents-icons/512/asia-512.png');
+  continentName: 'Азия',
+  continentImage:
+      'https://cdn1.iconfinder.com/data/icons/continents-icons/512/asia-512.png',
+  test: capitalsList,
+);
 
 Continents europe = Continents(
     continentName: 'Европа',

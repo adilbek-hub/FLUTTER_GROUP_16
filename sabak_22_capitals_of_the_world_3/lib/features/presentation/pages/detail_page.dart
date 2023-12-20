@@ -3,20 +3,25 @@ import 'package:sabak_22_capitals_of_the_world_3/features/data/model/test.dart';
 import 'package:sabak_22_capitals_of_the_world_3/features/presentation/theme/app_size.dart';
 import 'package:sabak_22_capitals_of_the_world_3/features/presentation/theme/app_text_style.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   const DetailPage({
     Key? key,
-    required this.test,
   }) : super(key: key);
-  final List<Test> test;
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
   final double sl = 10;
+  int indexs = 0;
+  int kataJoop = 0;
+  int tuuraJoop = 0;
 
   @override
   Widget build(BuildContext context) {
-    int testIndex = 0;
     return Scaffold(
-      appBar: _detailAppBar(),
+      appBar: _detailAppBar(kata: kataJoop, tuura: tuuraJoop),
       body: Column(
         children: [
           SizedBox(
@@ -29,19 +34,17 @@ class DetailPage extends StatelessWidget {
                       const RoundSliderThumbShape(enabledThumbRadius: 0.0)),
               child: Slider(
                 min: 0.0,
-                max: 100.0,
-                value: sl,
+                max: 3,
+                value: indexs.toDouble(),
                 onChanged: (value) {},
               ),
             ),
           ),
           Text(
-            test[testIndex].name,
+            capitalsList[indexs].capitalName,
             style: AppTextStyles.capitalNameStyle,
           ),
-          Expanded(
-              child: Image.network(
-                  'http://st-1.akipress.org/st_limon/1/1523419800_0.jpg')),
+          Expanded(child: Image.network(capitalsList[indexs].capitalImage)),
           AppSize.h20,
           Expanded(
             child: GridView.count(
@@ -52,15 +55,54 @@ class DetailPage extends StatelessWidget {
               children: List.generate(
                 4,
                 (index) {
-                  return Card(
-                    color: Colors.grey[500],
-                    margin: const EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        'Item $index',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
+                  return InkWell(
+                    onTap: () {
+                      if (indexs + 1 == capitalsList.length) {
+                        showDialog<void>(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Сиздин Тест Жыйынтыгыңыз'),
+                              actions: <Widget>[
+                                Text('Ката: $kataJoop / Туура: $tuuraJoop'),
+                                TextButton(
+                                  style: TextButton.styleFrom(
+                                    textStyle:
+                                        Theme.of(context).textTheme.labelLarge,
+                                  ),
+                                  child: const Text('Чыгуу'),
+                                  onPressed: () {
+                                    kataJoop = 0;
+                                    tuuraJoop = 0;
+                                    indexs = 0;
+                                    setState(() {});
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                        if (capitalsList[indexs].joop[index].isTrue == true) {
+                          tuuraJoop++;
+                        } else {
+                          kataJoop++;
+                        }
+                        indexs++;
+                        setState(() {});
+                      }
+                    },
+                    child: Card(
+                      color: Colors.grey[500],
+                      margin: const EdgeInsets.all(10),
+                      child: Center(
+                        child: Text(
+                          capitalsList[indexs].joop[index].countriesName,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ),
@@ -74,18 +116,18 @@ class DetailPage extends StatelessWidget {
     );
   }
 
-  AppBar _detailAppBar() {
+  AppBar _detailAppBar({required int kata, required int tuura}) {
     return AppBar(
-      title: const Row(
+      title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            '22',
+            'Ката жооп: $kata',
             style: AppTextStyles.numberFalseStyle,
           ),
-          Text('|'),
+          const Text('|'),
           Text(
-            '10',
+            'Туура жооп: $tuura',
             style: AppTextStyles.numberTrueStyle,
           ),
         ],
