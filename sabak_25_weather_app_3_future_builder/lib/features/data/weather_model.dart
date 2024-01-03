@@ -1,12 +1,14 @@
 class Weather {
   Weather({
     required this.id,
-    required this.main,
-    required this.description,
+    required this.temp,
     required this.icon,
+    required this.name,
+    required this.speed,
   });
   final int id;
-  final String main;
-  final String description;
+  final double temp;
   final String icon;
+  final String name;
+  final double speed;
 }
