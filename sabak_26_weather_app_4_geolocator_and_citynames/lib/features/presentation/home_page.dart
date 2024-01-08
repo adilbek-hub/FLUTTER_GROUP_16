@@ -46,6 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
   // }
 // Geolocator uchun function
   Future<void> weatherLocation() async {
+    setState(() {
+      weather = null;
+    });
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
