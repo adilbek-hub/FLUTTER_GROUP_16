@@ -27,23 +27,6 @@ class _MyHomePageState extends State<MyHomePage> {
     'Жалал-Абад',
   ];
   Weather? weather;
-  // Future<Weather?> fetchData() async {
-  //   final dio = Dio();
-  //   final result = await dio.get(
-  //       'https://api.openweathermap.org/data/2.5/weather?q=naryn,&appid=41aa18abb8974c0ea27098038f6feb1b');
-  //   if (result.statusCode == 200) {
-  //     final weather = Weather(
-  //       id: result.data["weather"][0]["id"],
-  //       temp: result.data["main"]["temp"],
-  //       icon: result.data["weather"][0]["icon"],
-  //       name: result.data["name"],
-  //       speed: result.data["wind"]["speed"],
-  //     );
-  //     return weather;
-  //   } else {
-  //     return null;
-  //   }
-  // }
 // Geolocator uchun function
   Future<void> weatherLocation() async {
     setState(() {
