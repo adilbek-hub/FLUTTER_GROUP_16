@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sabak_28_news_app2/constants/app_colors.dart';
 import 'package:sabak_28_news_app2/constants/app_text_styles.dart';
 import 'package:sabak_28_news_app2/features/data/fetch_data/fetch_top_news.dart';
+import 'package:sabak_28_news_app2/features/data/models/top_news.dart';
 import 'package:sabak_28_news_app2/features/data/news_model.dart';
 
 class NewsPage extends StatefulWidget {
@@ -12,12 +13,7 @@ class NewsPage extends StatefulWidget {
 }
 
 class _NewsPageState extends State<NewsPage> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    FetchTopNews().fetchTopNews();
-  }
+  TopNews? topNews;
 
   @override
   Widget build(BuildContext context) {
@@ -40,47 +36,51 @@ class _NewsPageState extends State<NewsPage> {
             )
           ],
         ),
-        body: ListView.builder(
-            itemCount: newsList.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                child: Card(
-                  color: Colors.red.withOpacity(0.3),
-                  child: Column(
-                    children: [
-                      Row(
+        body: topNews == null
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView.builder(
+                itemCount: newsList.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Card(
+                      color: Colors.red.withOpacity(0.3),
+                      child: Column(
                         children: [
-                          SizedBox(
-                            width: 130,
-                            height: 130,
-                            child: Image.asset(
-                              height: 50.0,
-                              width: 50.0,
-                              newsList[index].newsImage,
-                              fit: BoxFit.fill,
-                            ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 130,
+                                height: 130,
+                                child: Image.asset(
+                                  height: 50.0,
+                                  width: 50.0,
+                                  newsList[index].newsImage,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  newsList[index].newsText,
+                                  style: AppTextStyles.newsTextStyle,
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: Text(
-                              newsList[index].newsText,
-                              style: AppTextStyles.newsTextStyle,
-                            ),
+                          const Divider(
+                            color: Colors.grey,
+                            thickness: 2.0,
+                            indent: 10,
+                            endIndent: 10,
                           ),
                         ],
                       ),
-                      const Divider(
-                        color: Colors.grey,
-                        thickness: 2.0,
-                        indent: 10,
-                        endIndent: 10,
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            }),
+                    ),
+                  );
+                }),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.orange,
           onPressed: () {},
