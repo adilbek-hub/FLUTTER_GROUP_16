@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "247234632008",
+    "project_id": "my-project-4e036",
+    "storage_bucket": "my-project-4e036.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247234632008:android:866cba26f8a18a35fafb7d",
+        "android_client_info": {
+          "package_name": "com.example.sabak_34_firebase_todo_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-FIbX8VcXvqLYEbFZ8QCQjYpJC2OYiv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
