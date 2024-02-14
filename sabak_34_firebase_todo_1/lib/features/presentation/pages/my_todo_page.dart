@@ -27,11 +27,6 @@ class _MyTodoPageState extends State<MyTodoPage> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -81,7 +76,7 @@ class _MyTodoPageState extends State<MyTodoPage> {
                 value: isComplated,
                 onChanged: (value) {
                   setState(() {
-                    isComplated = value!;
+                    isComplated = value ?? false;
                   });
                 },
                 secondary: const Icon(Icons.hourglass_empty),

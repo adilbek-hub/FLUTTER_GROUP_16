@@ -2,10 +2,12 @@ import 'dart:convert';
 
 class Todo {
   Todo({
+    this.id,
     required this.name,
     required this.biography,
     required this.isComplated,
   });
+  String? id;
   final String name;
   final String biography;
   final bool isComplated;

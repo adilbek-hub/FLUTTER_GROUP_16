@@ -20,13 +20,19 @@ class _MyHomePageState extends State<MyHomePage> {
     final db = FirebaseFirestore.instance;
     await db
         .collection('myTodo')
-        .doc()
+        .doc(todo.id)
         .update({'isComplated': !todo.isComplated});
   }
 
   Future<void> deleteTodo(Todo todo) async {
     final db = FirebaseFirestore.instance;
-    await db.collection('myTodo').doc().delete();
+    await db.collection('myTodo').doc(todo.id).delete();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readData();
   }
 
   @override
@@ -39,42 +45,75 @@ class _MyHomePageState extends State<MyHomePage> {
             stream: readData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CupertinoActivityIndicator();
+                return const Center(child: CupertinoActivityIndicator());
               } else if (snapshot.hasError) {
                 return Text(snapshot.error.toString());
               } else if (snapshot.hasData) {
-                List<Todo> todos = snapshot.data!.docs
-                    .map((e) => Todo.fromMap(e.data() as Map<String, dynamic>))
+                final List<Todo> todos = snapshot.data!.docs
+                    .map((e) => Todo.fromMap(e.data() as Map<String, dynamic>)
+                      ..id = e.id)
                     .toList();
                 return ListView.builder(
                     itemCount: todos.length,
                     itemBuilder: (context, index) {
                       final todo = todos[index];
                       return Card(
-                        child: ListTile(
-                          leading: Text(todo.name),
-                          title: Text(todo.biography),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
+                          child: Column(
+                        children: [
+                          NameWidget(todo: todo),
+                          Text(
+                            todo.biography,
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Checkbox(
                                   value: todo.isComplated,
-                                  onChanged: (value) async {
-                                    await updateTodo(todo);
+                                  onChanged: (v) {
+                                    updateTodo(todo);
                                   }),
                               IconButton(
-                                  onPressed: () async {
-                                    await deleteTodo(todo);
-                                  },
-                                  icon: const Icon(Icons.delete))
+                                onPressed: () {
+                                  deleteTodo(todo);
+                                },
+                                icon: const Icon(Icons.delete),
+                              )
                             ],
-                          ),
-                        ),
-                      );
+                          )
+                        ],
+                      ));
                     });
               } else {
                 return const Center(child: Text('Белгисиз ката кетти'));
               }
             }));
+  }
+}
+
+class NameWidget extends StatelessWidget {
+  const NameWidget({
+    super.key,
+    required this.todo,
+  });
+
+  final Todo todo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: RichText(
+        text: TextSpan(
+          text: 'Аты-жөнү:',
+          style: DefaultTextStyle.of(context).style,
+          children: <TextSpan>[
+            TextSpan(
+                text: todo.name,
+                style: const TextStyle(fontWeight: FontWeight.bold)),
+          ],
+        ),
+      ),
+    );
   }
 }
