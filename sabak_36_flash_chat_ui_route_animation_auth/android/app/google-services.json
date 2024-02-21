@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "461391764414",
+    "project_id": "flash-chat-16-group",
+    "storage_bucket": "flash-chat-16-group.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461391764414:android:14b68e030ce7046101b7ef",
+        "android_client_info": {
+          "package_name": "com.example.sabak_36_flash_chat_ui_route_animation_auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ4mtYyrRS7mjeZulfiakMw_zzqxays7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
